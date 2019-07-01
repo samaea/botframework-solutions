@@ -38,6 +38,12 @@ namespace PointOfInterestSkill.Bots
 
             var dc = await _dialogs.CreateContextAsync(turnContext);
 
+            if (dc.Context.Activity.Locale == "en")
+            {
+
+                dc.Context.Activity.Locale = "en-us";
+            }
+
             if (dc.ActiveDialog != null)
             {
                 var result = await dc.ContinueDialogAsync();
